@@ -1,0 +1,140 @@
+@font-face {
+    font-family: 'Helios';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/Helios-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/Proxima-Nova-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../fonts/Proxima Nova Semibold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Racama';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/racama.otf') format('opentype');
+}
+
+html {
+    /* Базовый размер для 4K */
+    font-size: 20px;
+
+    font-family: "Helios", sans-serif;
+    font-weight: 400;
+    color: #fff;
+}
+
+@media (max-width: 1920px) {
+    html {
+        /* Уменьшаем базу в 2 раза для Full HD */
+        font-size: 10px;
+    }
+}
+
+*,
+*::before,
+*::after {
+    font-family: inherit;
+    color: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+.btn {
+    font-family: 'Proxima Nova', sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s ease;
+    text-align: center;
+    border-radius: 30px;
+    max-width: max-content;
+}
+
+.btn:hover {
+    transition: 0.5s ease;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.screen {
+    width: 100vw;
+    height: 100vh;
+}
+
+.first-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 158px 0 279px 0;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/first-screen-bg.jpg");
+}
+
+.first-screen__title {
+    font-size: 150px;
+    line-height: 100%;
+    font-weight: 400;
+    text-align: center;
+    font-family: 'Racama', sans-serif;
+}
+
+.btn--blured {
+    font-weight: 600;
+    font-size: 110px;
+    line-height: 55%;
+    text-align: center;
+    color: #fff;
+    border-radius: 250px;
+    padding: 100px 130px;
+    backdrop-filter: blur(50px);
+    background: linear-gradient(46deg, rgba(224, 239, 234, 0.4) 0.48%, rgba(193, 223, 214, 0.2) 56.25%, rgba(255, 255, 255, 0.5) 100%);
+}
+
+.first-screen__btn {
+    padding: 100px 150px;
+    margin-bottom: 100px;
+    margin-top: auto;
+}
+
+.first-screen__desc {
+    font-size: 70px;
+    line-height: 120%;
+    text-align: center;
+    max-width: 1528px;
+}
+
+. {
+
+}
+
+. {
+
+}
+
