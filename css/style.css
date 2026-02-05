@@ -123,6 +123,7 @@ html {
 }
 
 .btn--blurred {
+    border: 2px solid #7fa68a;
     font-weight: 600;
     font-size: 5.5rem; /* 110px / 20 = 5.5 */
     line-height: 55%;
@@ -289,9 +290,16 @@ html {
     width: 4.2rem; /* 84px / 20 */
 }
 
-.slider-screen .swiper-button-next.swiper-button-disabled,
 .slider-screen .swiper-button-prev.swiper-button-disabled {
     opacity: 0;
+}
+
+.slider-screen .swiper-button-next.swiper-button-disabled {
+    opacity: 1;
+}
+
+.swiper-button-next {
+    pointer-events: auto !important; /* Позволяет ловить клик даже на заблокированной кнопке */
 }
 
 .slider-screen .swiper-button-next::after,
