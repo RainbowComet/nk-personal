@@ -47,17 +47,7 @@ html {
 @media (max-width: 1920px) {
     html {
         /* База Full HD: 10px (1rem = 10px) */
-        font-size: 4px;
-    }
-
-    body {
-        display: flex;
-        justify-content: center;
-    }
-
-    .screen {
-        max-width: calc(100vh / 1.77);
-        margin: 0 auto;
+        font-size: 10px;
     }
 }
 
