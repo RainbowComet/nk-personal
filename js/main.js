@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             2: {
                 'img': '2.png',
-                'custom': '<div class="title-block"><h3 class="title-block__text">\t<span class="title-block__year">2023:</span>\t<span class="title-block__year-value">«Переориентировала ферму «Зеленый барашек» в экоферму «Полная котомка» и&nbsp;начала производство молочной продукции и&nbsp;сыров»</span></h3></div>',
+                'custom': '<div class="title-block title-block--custom"><h3 class="title-block__text">\t<span class="title-block__year">2023:</span>\t<span class="title-block__year-value title-block__year-value--nova-font">«Переориентировала ферму «Зеленый барашек» в экоферму «Полная котомка» и&nbsp;начала производство молочной продукции и&nbsp;сыров»</span></h3></div>',
                 'text': '«Это очень интересно. Муж подарил мне двух баранов. Они были такие смешные, уже большие, и он перевязал их зелеными ленточками — такой подарок. Они были очень дикими, боялись. «Зеленый барашек» появился раньше, но он специально обвязал их зелеными ленточками, чтобы изобразить зеленого барашка»',
             },
             3: {

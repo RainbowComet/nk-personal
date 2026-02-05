@@ -91,6 +91,17 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    transition: opacity 1s ease, visibility 1s;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+/* Класс активного экрана */
+.screen.is-active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .first-screen {
@@ -138,6 +149,7 @@ html {
 
 
 .second-screen {
+    transition: opacity 0.5s ease;
     padding: 10rem 0;
 
     background-repeat: no-repeat;
@@ -163,6 +175,8 @@ html {
 }
 
 .second-screen__btn {
+    opacity: 0;
+    transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.5s ease;
     border-radius: 5rem;
 }
 
@@ -189,12 +203,13 @@ html {
 .slider-screen__img-wrapper {
 
 }
+
 .slider-screen__text {
     border-radius: 3.5rem; /* 70px / 20 */
-    padding: 4rem;        /* 80px / 20 */
+    padding: 4rem; /* 80px / 20 */
     background: linear-gradient(30deg, #fff 0%, #c2e1c7 100%);
     font-weight: 400;
-    font-size: 3.2rem;    /* 64px / 20 */
+    font-size: 3.2rem; /* 64px / 20 */
     line-height: 156%;
     letter-spacing: -0.02em;
     color: #161617;
@@ -202,7 +217,7 @@ html {
 
 .slider-screen__footer {
     display: flex;
-    gap: 2rem;            /* 40px / 20 */
+    gap: 2rem; /* 40px / 20 */
     align-items: center;
     margin-top: auto;
     width: 100%;
@@ -210,7 +225,7 @@ html {
 
 .footer__title {
     font-weight: 400;
-    font-size: 4.5rem;    /* 90px / 20 */
+    font-size: 4.5rem; /* 90px / 20 */
     line-height: 111%;
     font-family: 'Racama', sans-serif;
 }
@@ -218,13 +233,13 @@ html {
 .footer__line {
     width: 100%;
     flex: 1;
-    height: 0.25rem;      /* 5px / 20 */
+    height: 0.25rem; /* 5px / 20 */
     background: #fff;
 }
 
 .footer__slides-amount {
     font-weight: 400;
-    font-size: 4.5rem;    /* 90px / 20 */
+    font-size: 4.5rem; /* 90px / 20 */
     line-height: 111%;
     font-family: 'Racama', sans-serif;
 }
@@ -236,24 +251,24 @@ html {
 }
 
 .slider-screen__menu-btn {
-    border-radius: 4rem;  /* 80px / 20 */
+    border-radius: 4rem; /* 80px / 20 */
     padding: 4.5rem 6rem; /* 90px / 20 = 4.5 | 120px / 20 = 6 */
     font-weight: 600;
-    font-size: 3.75rem;   /* 75px / 20 */
+    font-size: 3.75rem; /* 75px / 20 */
 }
 
 .navigation-controls {
     display: flex;
-    gap: 1.5rem;          /* 30px / 20 */
+    gap: 1.5rem; /* 30px / 20 */
 }
 
 .slider-screen .swiper-button-next,
 .slider-screen .swiper-button-prev {
     position: static;
-    width: 11.5rem;       /* 230px / 20 */
+    width: 11.5rem; /* 230px / 20 */
     min-width: 11.5rem;
-    height: 11.5rem;      /* 230px / 20 */
-    border-radius: 4rem;  /* 80px / 20 */
+    height: 11.5rem; /* 230px / 20 */
+    border-radius: 4rem; /* 80px / 20 */
     padding: 0;
     color: unset;
     margin-top: unset;
@@ -270,8 +285,8 @@ html {
 
 .slider-screen .swiper-button-next svg,
 .slider-screen .swiper-button-prev svg {
-    height: 2.6rem;       /* 52px / 20 */
-    width: 4.2rem;        /* 84px / 20 */
+    height: 2.6rem; /* 52px / 20 */
+    width: 4.2rem; /* 84px / 20 */
 }
 
 .slider-screen .swiper-button-next.swiper-button-disabled,
@@ -287,32 +302,30 @@ html {
 .slider-screen .swiper-pagination {
     position: static;
     display: flex;
-    gap: 30px;
-    margin-top: 60px;
-    margin-bottom: 60px;
-
+    gap: 1.5rem; /* 30px / 20 */
+    margin-top: 3rem; /* 60px / 20 */
+    margin-bottom: 3rem; /* 60px / 20 */
 }
 
 .slider-screen .swiper-pagination .swiper-pagination-bullet {
     background: rgba(255, 255, 255, 0.4);
-    height: 25px;
-    border-radius: 20px;
+    height: 1.25rem; /* 25px / 20 */
+    border-radius: 1rem; /* 20px / 20 */
     width: 100%;
     position: relative;
-    overflow: hidden; /* Чтобы заполнение не выходило за скругленные углы */
-    opacity: 1; /* Swiper по умолчанию ставит 0.2, переопределяем */
+    overflow: hidden;
+    opacity: 1;
 }
 
-/* Создаем "заполнитель" */
 .slider-screen .swiper-pagination .swiper-pagination-bullet::after {
     content: "";
     position: absolute;
     left: 0;
     top: 0;
     height: 100%;
-    width: 0; /* Изначально ширина 0 */
+    width: 0;
     background: rgba(255, 255, 255, 1);
-    border-radius: 20px;
+    border-radius: 1rem; /* 20px / 20 */
 }
 
 /* Анимация при активации буллета */
@@ -330,13 +343,13 @@ html {
 }
 
 .swiper-container .swiper-wrapper {
-    height: 2904px;
-
+    height: 145.2rem; /* 2904px / 20 */
 }
 
 #slider-screen {
     width: 100%;
     overflow: hidden;
+    padding: 0;
 }
 
 .swiper-wrapper {
@@ -348,73 +361,93 @@ html {
     width: 100%;
 }
 
-#slider-screen {
-    padding: 0;
-}
-
 .swiper-slide {
-    padding: 100px 100px 0 100px;
+    padding: 5rem 5rem 0 5rem; /* 100px / 20 */
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3rem !important; /* 60px / 20 */
 }
 
 .swiper-pagination {
-    padding: 0 100px;
+    padding: 0 5rem; /* 100px / 20 */
 }
 
 .slider-screen__btns {
-    padding: 0 100px;
+    padding: 0 5rem; /* 100px / 20 */
 }
 
 .slider-screen__footer {
-    padding: 0 100px 100px 100px;
+    padding: 0 5rem 5rem 5rem; /* 100px / 20 */
 }
 
-
-/* Базовый класс для экранов */
-.screen {
-    transition: opacity 1s ease, visibility 1s;
-    opacity: 0;
-    visibility: hidden;
-    position: absolute; /* Чтобы экраны не толкали друг друга при смене */
-    width: 100%;
-}
-
-/* Класс активного экрана */
-.screen.is-active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Состояния второго экрана */
-.second-screen {
-    transition: opacity 0.5s ease;
-}
-
-/* Базовое состояние кнопок (скрыты) */
-.second-screen__btn {
-    opacity: 0;
-    transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.5s ease;
-}
-
-/* Кнопки 1, 3, 5 вылетают слева */
+/* Анимации вылета (Transform) */
 .second-screen__btn:nth-child(odd) {
-    transform: translateX(-350px);
+    transform: translateX(-17.5rem); /* 350px / 20 */
 }
 
-/* Кнопки 2, 4 вылетают справа */
 .second-screen__btn:nth-child(even) {
-    transform: translateX(350px);
+    transform: translateX(17.5rem); /* 350px / 20 */
 }
 
-/* Эффект появления при активном экране */
 .second-screen.is-active .second-screen__btn {
     opacity: 1;
     transform: translateX(0);
 }
 
-/* Добавляем каскадную задержку для каждой кнопки */
+.second-screen.is-leaving .second-screen__btn:nth-child(odd) {
+    transform: translateX(-17.5rem);
+    opacity: 0;
+}
+
+.second-screen.is-leaving .second-screen__btn:nth-child(even) {
+    transform: translateX(17.5rem);
+    opacity: 0;
+}
+
+/* Блоки заголовков */
+.title-block {
+    border-radius: 3.5rem; /* 70px / 20 */
+    padding: 4rem; /* 80px / 20 */
+    background: linear-gradient(30deg, #fff 0%, #c2e1c7 100%);
+}
+
+.title-block__text {
+    border-radius: 3.5rem; /* 70px / 20 */
+    padding: 3.5rem; /* 70px / 20 */
+    background: linear-gradient(135deg, rgba(0, 125, 50, 0.15) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(0, 125, 50, 0.15) 100%);
+    font-weight: 400;
+    font-size: 4.5rem; /* 90px / 20 */
+    color: #007d32;
+    font-family: 'Racama', sans-serif;
+    line-height: 3.15rem; /* 63px / 20 */
+
+    display: flex;
+    flex-direction: column;
+}
+
+.title-block__year-value {
+    font-weight: 400;
+    font-size: 3.75rem; /* 75px / 20 */
+    line-height: 4.5rem; /* 90px / 20 */
+    color: #161617;
+    margin-top: 1.5rem; /* 30px / 20 */
+    font-family: "Helios", sans-serif;
+}
+
+.title-block__additional-text {
+    font-weight: 400;
+    font-size: 3.75rem; /* 75px / 20 */
+    line-height: 4.5rem; /* 90px / 20 */
+    letter-spacing: -0.02em;
+    color: #161617;
+    margin-top: 4rem; /* 80px / 20 */
+    font-family: "Helios", sans-serif;
+}
+
 .second-screen__btn:nth-child(1) {
     transition-delay: 0.15s;
 }
+
 
 .second-screen__btn:nth-child(2) {
     transition-delay: 0.25s;
@@ -432,59 +465,15 @@ html {
     transition-delay: 0.55s;
 }
 
-/* Состояние исчезновения (Разлет) */
-.second-screen.is-leaving .second-screen__btn:nth-child(odd) {
-    transform: translateX(-350px);
-    opacity: 0;
+.title-block__year-value--nova-font {
+    font-family: 'Proxima Nova', sans-serif;
+    line-height: 4rem;
 }
 
-.second-screen.is-leaving .second-screen__btn:nth-child(even) {
-    transform: translateX(350px);
-    opacity: 0;
+.title-block--custom + .slider-screen__text {
+    line-height: 140%;
 }
 
-.title-block {
-    border-radius: 70px;
-    padding: 80px;
-    background: linear-gradient(30deg, #fff 0%, #c2e1c7 100%);
-=
-}
-
-.title-block__text {
-    border-radius: 70px;
-    padding: 70px;
-    background: linear-gradient(135deg, rgba(0, 125, 50, 0.15) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(0, 125, 50, 0.15) 100%);
-    font-weight: 400;
-    font-size: 90px;
-    color: #007d32;
-    font-family: 'Racama', sans-serif;
-    line-height: 63px;
-
-    display: flex;
-    flex-direction: column;
-}
-
-.swiper-slide {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 60px !important;
-}
-
-.title-block__year-value {
-    font-weight: 400;
-    font-size: 75px;
-    line-height: 90px;
-    color: #161617;
-    margin-top: 30px;
-    font-family: "Helios", sans-serif;
-}
-
-.title-block__additional-text {
-    font-weight: 400;
-    font-size: 75px;
-    line-height: 90px;
-    letter-spacing: -0.02em;
-    color: #161617;
-    margin-top: 80px;
-    font-family: "Helios", sans-serif;
+.slider-screen__img-wrapper img {
+    max-width: 100%;
 }
