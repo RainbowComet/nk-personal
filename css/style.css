@@ -47,7 +47,17 @@ html {
 @media (max-width: 1920px) {
     html {
         /* База Full HD: 10px (1rem = 10px) */
-        font-size: 10px;
+        font-size: 4px;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+    }
+
+    .screen {
+        max-width: calc(100vh / 1.77);
+        margin: 0 auto;
     }
 }
 
@@ -123,7 +133,7 @@ html {
 }
 
 .btn--blurred {
-    border: 2px solid #7fa68a;
+    /*border: 2px solid #7fa68a;*/
     font-weight: 600;
     font-size: 5.5rem; /* 110px / 20 = 5.5 */
     line-height: 55%;
