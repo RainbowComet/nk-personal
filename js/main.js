@@ -342,6 +342,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Ссылка на кнопку "Вперед"
         const nextBtn = document.querySelector('.slider-screen .swiper-button-next');
+        const prevBtn = document.querySelector('.slider-screen .swiper-button-prev');
 
         if (nextBtn) {
             nextBtn.addEventListener('click', () => {
@@ -384,6 +385,93 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         }
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                // Проверяем, заблокирована ли кнопка (значит слайды закончились)
+                if (prevBtn.classList.contains('swiper-button-disabled')) {
+
+                    // Получаем текущее название раздела из заголовка футера
+                    const currentTitle = document.getElementById('footer-title').textContent.trim();
+
+                    // Находим индекс текущего раздела в массиве
+                    const currentIndex = sectionsOrder.indexOf(currentTitle);
+
+                    // Вычисляем следующий индекс
+                    const nextIndex = currentIndex - 1;
+
+                    // Если следующий раздел существует в массиве
+                    if (nextIndex >= 0) {
+                        const nextSectionKey = sectionsOrder[nextIndex];
+
+                        // Вызываем инициализацию нового слайдера (без показа 2-го экрана)
+                        if (typeof initSliderByKey === 'function') {
+                            // Плавная анимация смены контента внутри слайдера
+                            const wrapper = document.querySelector('.swiper-wrapper');
+                            wrapper.style.opacity = '0';
+
+                            document.getElementById('footer-title').innerHTML = nextSectionKey;
+                            setTimeout(() => {
+                                initSliderByKey(nextSectionKey, window.texts);
+                                wrapper.style.opacity = '1';
+                            }, 300);
+                        }
+                    } else {
+                        const menuBtn = document.getElementById('menu-btn');
+                        if (menuBtn) {
+                            menuBtn.click();
+                        } else {
+
+                        }
+                    }
+                }
+            });
+        }
+
+
+        //таймер
+        let idleTimer;
+        const idleTimeLimit = 2 * 60 * 1000; // 2 минуты в миллисекундах
+
+        // Функция возврата на первый экран
+        function resetToHome() {
+            console.log('Пользователь неактивен 2 минуты. Возврат на главный экран.');
+
+            // Находим все экраны
+            const allScreens = document.querySelectorAll('.screen');
+            const firstScreen = document.getElementById('first-screen');
+
+            // Скрываем текущий активный экран
+            allScreens.forEach(screen => {
+                screen.classList.remove('is-active');
+                // Добавляем display-none после завершения анимации (0.5 сек)
+                setTimeout(() => {
+                    if (!screen.classList.contains('is-active')) {
+                        screen.classList.add('display-none');
+                    }
+                }, 500);
+            });
+
+            // Показываем первый экран
+            setTimeout(() => {
+                firstScreen.classList.remove('display-none');
+                requestAnimationFrame(() => {
+                    firstScreen.classList.add('is-active');
+                });
+            }, 550);
+        }
+
+        // Функция сброса таймера
+        function restartIdleTimer() {
+            clearTimeout(idleTimer);
+            idleTimer = setTimeout(resetToHome, idleTimeLimit);
+        }
+
+        // Отслеживаем клики по всему документу
+        document.addEventListener('click', restartIdleTimer);
+
+        // Запускаем таймер при первой загрузке страницы
+        restartIdleTimer();
+
     }
 )
 ;

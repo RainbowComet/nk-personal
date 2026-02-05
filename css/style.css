@@ -291,14 +291,15 @@ html {
 }
 
 .slider-screen .swiper-button-prev.swiper-button-disabled {
-    opacity: 0;
+    opacity: 1;
 }
 
 .slider-screen .swiper-button-next.swiper-button-disabled {
     opacity: 1;
 }
 
-.swiper-button-next {
+.swiper-button-next,
+.swiper-button-prev {
     pointer-events: auto !important; /* Позволяет ловить клик даже на заблокированной кнопке */
 }
 
